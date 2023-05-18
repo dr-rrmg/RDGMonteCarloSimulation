@@ -1,0 +1,28 @@
+*****SIMULATION OUTPUT**** 
+ 
+CARRIER GAS CONFIGURATION 
+Gas: N2 
+SRIM range (cm): 0.0073 ± 0.0011 
+Kinetic radii (cm): 1.82e-10 
+Molar mass (g/mol): 28 
+Ionisation energy (eV): 1 
+Electron affinity (eV): 1 
+Calculated mobility(cm2/(vs)): 1.870243015080504 
+Calculated density (kg/m3): 1.164589414647502 
+ 
+ENVIROMENTAL PARAMETERS 
+Temp (K): 293 
+Pressure (pa): 101325 
+Relative humidity (%): 10 
+ 
+SIMULATION CONFIGURATION 
+Number of Nuclei: 100000 
+Simulation time step (s): 0.0005 
+ANSYS solution file: NODE_SOL_MERGE_RAD7.csv 
+ 
+POSTSIMULATION CALCULATIONS 
+Nuclei collected: 42012 
+Nuclei lost: 57988 
+Nuclei SIR: 11844 
+Collection Efficiency): 0.42012 
+Average Time of Flight (s): 0.0067509049999992556

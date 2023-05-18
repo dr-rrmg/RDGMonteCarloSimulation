@@ -12,7 +12,7 @@ This project aims to enhance our understanding of the collection efficiency of r
 3. [Electrostatic Collection Mechanism](#electrostatic-collection-mechanism)
 4. [Modelling Electrostatic Collection Chamber E-Field](#modelling-electrostatic-collection-chamber-e-field)
 5. [Simulating Radon Generation and 218Po+ Transport](#simulating-radon-generation-and-218po-transport)
-6. [Running the Simulation](#running-the-simulation)
+6. [Simulating Chemical Neutralisation](#simulating-chemical-neutralisation)
 7. [References](#references)
 
 ## Dependencies
@@ -85,6 +85,42 @@ During transport, the trajectory of the 218Po ion can be affected due to collisi
 
 Loses due to 218Po decay during flight can be neglected, as the maximum flight time of 218Po is much smaller than the mean lifetime of 218Po decay. Only 218Po produced in the chamber is collected as the RAD7 uses a filter to stop any radon progeny already present in the gas sample from entering the chamber. Therefore, any 218Po in the chamber will have a mean lifetime of 4.5 minutes. The maximum flight time of 218Po in the chamber can be approximated by considering the maximum distance possible between a 218Po and the active surface in the detector, and the approximate electric field in the chamber [^3].
 
+## Simulating Chemical Neutralisation
+The three chemical neutralisation processes commonly considered in the electrostatic collection of radon are: Small Ion Recombination, Electron Scavenging, and Charge Transfer. These processes are complex and difficult to simulate. However, in simulations limited to pure carrier gases (without trace gases) and low humidity, neutralisation by Electron Scavenging can be disregarded. The same can be done with Charge Transfer if only carrier gases with ionisation potentials lower than that of the Polonium atom are used in the simulation. This leaves Small Ion Recombination as the primary chemical neutralisation process. According to Gunn, the half-life for neutralisation due to small ion recombination, $t_{1/2}$, of a positively charged $^{218}$Po ion can be estimated using the equation:
+
+$$
+t_{1/2} = \frac{\ln(2) \epsilon_0}{Ne\mu}
+$$
+
+where $N$ is the number concentration of negative ions (including electrons) in the gas, $\mu$ is the mobility of the $^{218}$Po$^+$ ion in a specific carrier gas, $e$ is the elementary charge, and $\epsilon_0$ is the permittivity of free space [1]. The exact relationship between the negative small ion concentration and radon concentration is not known, but it is expected to be a function of the energy required to create an ion pair, known as the $W$-value. Raabe estimated the half-life for neutralisation due to small ion recombination in an environment with a radon concentration of 3700 $Bq m^{-3}$ to be 1.2 seconds [2]. The number of ions, $N$, that corresponds to this radon concentration can be calculated using the equation above. It was determined that a radon concentration of 3700 $Bq m^{-3}$ in $N_2$ carrier gas corresponds to an ion concentration of $1.3 \times 10^{11}$ m$^{-3}$.
+
+Assuming that the negative ions are produced due to the alpha decay of radon, the number of negative ions, $N$, can be related to the $W$-value, $W$, and the radon concentration, $C_{Rn}$, using the equation:
+
+$$
+N = k C_{Rn} \frac{E_\alpha}{W}
+$$
+
+where $E_\alpha$ is the alpha energy of $^{222}$Rn decay (5.49 MeV), and $k$ is a constant related to the complex mechanism of negative ion formation and lifetime at that concentration. Using Raabe's measurement in \ce{N2}, a value for $k$ is extrapolated to be 312.5 $m^3/Bq$.
+
+The small ion recombination process can be applied to the simulation by using the equations above to estimate the probability of neutralisation during a simulation time $dt$. Considering a small time step $dt$ where $dt << \tau$, the probability of small ion recombination, $p$, during time $dt$ is given by:
+
+$$
+p = \frac{dt}{\tau}
+$$
+
+where $\tau$ is the mean lifetime of the $^{218}$Po ion, given by:
+
+$$
+\tau = \frac{t_{1/2}}{\ln(2)}
+$$
+
+Substituting the equations, the probability of $^{218}$Po ion chemical neutralisation due to small ion recombination for a specific carrier gas and radon concentration is given by:
+
+$$
+p = \frac{e E_\alpha k}{\epsilon_0} \frac{C_{Rn} \mu}{W} dt
+$$
+
+where $e$ is the elementary charge, $E_\alpha$ is the energy released during alpha decay, $k$ is a calculated constant related to negative ion formation, $\epsilon_0$ is the permittivity of free space, $C_{Rn}$ is the radon concentration, $\mu$ is the ion mobility, $W$ is the energy required to produce an ion pair in the medium, and $dt$ is the time step over which the probability of small ion recombination is calculated. As expected, the probability of neutralisation by small ion recombination is inversely proportional to the $W$-value, as a higher value indicates fewer negative ions will be present. This equation provides a way to apply the small ion recombination chemical neutralisation process in the Monte Carlo simulation.
 
 ## Running the Simulation
 

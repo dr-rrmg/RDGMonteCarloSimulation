@@ -2,10 +2,6 @@
 
 his repository contains the code and results for a Monte Carlo simulation of radon collection in different gases. The simulation is based on Chapter 3 of my Physics [PhD thesis](#simulating-chemical-neutralisation).
 
-## Project Overview
-
-This project aims to enhance our understanding of the collection efficiency of radon in various gases - a crucial aspect in research and industry. While experimental methods to derive this data exist, they are time-consuming and require access to various gases. This project presents an alternative - a Monte Carlo simulation that can predict a detector's response in different gases. While there have been previous simulations of electrostatic collection, this project specifically models the widely-used DURRIDGE RAD7 device and accounts for chemical neutralization processes, which are known to significantly impact collection.
-
 ## Table of Contents
 1. [Project Overview](#project-overview)
 2. [Dependencies](#dependencies)
@@ -16,6 +12,10 @@ This project aims to enhance our understanding of the collection efficiency of r
 7. [Example with Nitrogen](#simulating-chemical-neutralisation)
 8. [Other Applications](#simulating-chemical-neutralisation)
 9. [References](#references)
+
+## Project Overview
+
+This project aims to enhance our understanding of the collection efficiency of radon in various gases - a crucial aspect in research and industry. While experimental methods to derive this data exist, they are time-consuming and require access to various gases. This project presents an alternative - a Monte Carlo simulation that can predict a detector's response in different gases. While there have been previous simulations of electrostatic collection, this project specifically models the widely-used DURRIDGE RAD7 device and accounts for chemical neutralization processes, which are known to significantly impact collection.
 
 ## Dependencies
 

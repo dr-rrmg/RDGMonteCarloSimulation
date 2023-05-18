@@ -64,7 +64,7 @@ Now that the RAD7 electric field chamber has been modeled, radon generation insi
 
 The simulation starts with the generation of radon positions in the chamber. Since radon is uncharged, it is invisible to the electric field in the chamber and will distribute randomly in the chamber volume. The numpy.random package is used to generate random positions in the h and r coordinates inside the chamber. However, due to simplifying the 3D volume to 2D cylindrical coordinates, two corrections are made to the generation of random r coordinates. The first is that the r coordinate is a function of h and is limited as the height of the hemisphere is approached. The second is that the probability density function for generated r must grow with increasing r. This is because a larger r results in a bigger chamber volume, allowing for more possible points in the r coordinate.
 
-![Distribution of radon positions randomly generated in the electrostatic chamber](images/RandomCartesianGenerationCheck.png)
+![Distribution of radon positions randomly generated in the electrostatic chamber](images/randongenerationcheck.png)
 
 The simulation then models recoil losses during radon decay. Once a 222Rn atom is generated in the chamber, it can alpha decay, causing the 218Po atom to recoil in a random direction. The recoil range of 218Po depends on the carrier gas species, temperature, and pressure, which can be calculated using the SRIM simulation package [^3].
 

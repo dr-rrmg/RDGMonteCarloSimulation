@@ -68,8 +68,10 @@ The simulation starts with the generation of radon positions in the chamber. Sin
 
 The simulation then models recoil losses during radon decay. Once a 222Rn atom is generated in the chamber, it can alpha decay, causing the 218Po atom to recoil in a random direction. The recoil range of 218Po depends on the carrier gas species, temperature, and pressure, which can be calculated using the SRIM simulation package [^3].
 
-![SRIM range simulation: left shows 218Po ion traversing He and right shows ion ranges histogram](images/heliumSRIM2022-recoil.png)
-![SRIM range simulation](images/heliumSRIM2022.png)
+<p float="left">
+<img src="images/heliumSRIM2022-recoil.png" alt="SRIM range simulation: left shows 218Po ion traversing He and right shows ion ranges histogram" height="300" />
+<img src="images/heliumSRIM2022.png" alt="SRIM range simulation: left shows 218Po ion traversing He and right shows ion ranges histogram" height="300" />
+</p>
 
 A positively charged 218Po atom produced from 222Rn decay will drift towards the PIPS detector due to the electric field in the chamber. However, 222Rn decay only results in 88% of 218Po atoms being positively charged. Since neutral 218Po atoms are unresponsive to the electric field, they will not be collected. To simulate this, 222Rn decay is defined with a function that has a 12% probability of producing a neutral 218Po atom.
 

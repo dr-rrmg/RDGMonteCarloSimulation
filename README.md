@@ -21,7 +21,7 @@ The electrostatic chamber and PIPS detector inside the RAD7 were modeled using A
 
 The cylindrical symmetry of the electric field chamber was exploited to simplify the ANSYS electric field calculation from 3D to 2D by using cylindrical coordinates.
 
-![Image description](path-to-image)
+![Image description](images/RAD7Chamber.jpg)
 
 Above are photos of the PIPS detector (left) and the internal chamber (right) in the RAD7.
 

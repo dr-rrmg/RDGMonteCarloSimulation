@@ -1,6 +1,6 @@
 # Monte Carlo Simulation of Radon Collection in Different Gases
 
-his repository contains the code and results for a Monte Carlo simulation of radon collection in different gases. The simulation is based on Chapter 3 of my Physics [PhD thesis](#simulating-chemical-neutralisation).
+This repository contains the code and results for a Monte Carlo simulation of radon collection in different gases. The simulation is based on Chapter 3 of my Physics [PhD thesis](#simulating-chemical-neutralisation).
 
 ## Table of Contents
 1. [Project Overview](#project-overview)
